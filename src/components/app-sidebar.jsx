@@ -13,7 +13,7 @@ const MenuItems = [
   {
     label: "Dashboard",
     icon: File,
-    url: `/dashboard`,
+    url: `/`,
   },
   {
     label: "Settings",
