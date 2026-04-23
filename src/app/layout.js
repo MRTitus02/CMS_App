@@ -4,6 +4,8 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { Poppins } from "next/font/google";
 import Navbar from "@/components/navbar";
+import { AuthProvider } from "@/components/providers/AuthProvider";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,14 +35,17 @@ export default function RootLayout({ children }) {
       className={`${poppins.className} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <AuthProvider>
         <SidebarProvider>
           <AppSidebar />
           <main className="w-full">
             <SidebarTrigger />
               < Navbar />
             {children}
+              <Toaster />
           </main>
         </SidebarProvider>
+        </AuthProvider>
       </body>
     </html>
   );
